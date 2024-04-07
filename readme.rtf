@@ -1,116 +1,123 @@
 {\rtf1\ansi\ansicpg1252\cocoartf2759
 \cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fswiss\fcharset0 Helvetica-Bold;\f2\fnil\fcharset0 Menlo-Regular;
 }
-{\colortbl;\red255\green255\blue255;\red140\green211\blue254;\red24\green24\blue24;\red193\green193\blue193;
-\red202\green202\blue202;\red212\green214\blue154;\red167\green197\blue152;\red67\green192\blue160;\red70\green137\blue204;
-\red194\green126\blue101;\red140\green211\blue254;\red24\green24\blue24;\red202\green202\blue202;\red194\green126\blue101;
-\red70\green137\blue204;\red212\green214\blue154;\red167\green197\blue152;}
-{\*\expandedcolortbl;;\cssrgb\c61176\c86275\c99608;\cssrgb\c12157\c12157\c12157;\cssrgb\c80000\c80000\c80000;
-\cssrgb\c83137\c83137\c83137;\cssrgb\c86275\c86275\c66667;\cssrgb\c70980\c80784\c65882;\cssrgb\c30588\c78824\c69020;\cssrgb\c33725\c61176\c83922;
-\cssrgb\c80784\c56863\c47059;\cssrgb\c61176\c86275\c99608;\cssrgb\c12157\c12157\c12157;\cssrgb\c83137\c83137\c83137;\cssrgb\c80784\c56863\c47059;
-\cssrgb\c33725\c61176\c83922;\cssrgb\c86275\c86275\c66667;\cssrgb\c70980\c80784\c65882;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww20020\viewh8400\viewkind0
+{\colortbl;\red255\green255\blue255;\red255\green255\blue255;\red253\green183\blue24;\red0\green0\blue0;
+\red143\green215\blue255;\red194\green194\blue192;\red204\green204\blue202;\red212\green213\blue152;\red193\green193\blue193;
+\red193\green193\blue193;\red212\green213\blue153;\red141\green213\blue254;\red203\green203\blue202;\red167\green197\blue151;
+\red67\green192\blue160;\red71\green138\blue206;\red194\green125\blue100;\red141\green213\blue254;\red203\green203\blue202;
+\red194\green125\blue100;\red71\green138\blue206;\red212\green213\blue153;\red167\green197\blue151;\red255\green255\blue255;
+\red193\green193\blue193;\red0\green0\blue0;\red255\green255\blue255;}
+{\*\expandedcolortbl;;\cssrgb\c100000\c100000\c100000;\cssrgb\c99711\c76105\c11148;\cssrgb\c0\c0\c0;
+\cssrgb\c62094\c87346\c100000;\cssrgb\c80437\c80436\c79935;\cssrgb\c83591\c83590\c83069;\cssrgb\c86201\c86121\c65974;\cssrgb\c80176\c80176\c79976;
+\cssrgb\c80000\c80000\c80000;\cssrgb\c86247\c86216\c66392;\cssrgb\c61544\c86705\c99884;\cssrgb\c83320\c83320\c83112;\cssrgb\c71034\c80830\c65726;
+\cssrgb\c30631\c78929\c69023;\cssrgb\c34145\c61677\c84338;\cssrgb\c80772\c56796\c46790;\cssrgb\c61545\c86704\c99884;\cssrgb\c83320\c83320\c83112;
+\cssrgb\c80772\c56796\c46790;\cssrgb\c34146\c61677\c84338;\cssrgb\c86247\c86215\c66392;\cssrgb\c71035\c80830\c65726;\cssrgb\c100000\c100000\c100000\c0;
+\cssrgb\c80088\c80088\c79988;\cssrgb\c0\c1\c1;\cssrgb\c100000\c100000\c99985\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww19900\viewh8400\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\fs24 \cf0 COMP5329 - Deep Learning - Assignment 1\
 Team : Andrew Zhang: (SID 500543568), Vincent Yunansan (SID 530454874)\
 \
 \ul A. BACKGROUND:\
-\ulnone 1. Goal of this assignment is to implement a neural network without the use of modern machine learning libraries\
-2. Teams are provided with training and test data, each with 50,000 and 10,000 data points. Each data point consists of 128 floating numbers. \ul \
-\ulnone 3. Each data point has a corresponding label stored in the training and testing label. There are 10 labels to which the data points are assigned to.\ul \ulc0 \
+\ulnone Goal of this assignment is to implement a neural network without the use of modern machine learning libraries. Teams are provided with training and test data, each with 50,000 and 10,000 data points across 10 classes. Each data point consists of 128 floating numbers.\ul \ulc0 \
 \
 B. OVERVIEW:\ulnone \
-1. Please refer to 
-\f1\b 500543568_530454874.ipynb
-\f0\b0  for our neural network implementation\
-2. The codes can be ran top to bottom.\
-3. The structure of our neural network implementation can be divided into three main parts, explained below:\
+Please refer to 
+\f1\b 500543568_530454874_Assignment_1.ipynb
+\f0\b0  for our neural network implementation. 
+\f1\b The codes can be ran top to bottom
+\f0\b0 . The structure of our neural network implementation can be divided into three main parts, explained below:\
 	\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 \ul 3A. PRE-PROCESSING:\ulnone \
+\cf0 \ul B1. PRE-PROCESSING:\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \ulnone \
 1. 
 \f1\b Normalization
-\f0\b0 : training and testing data are normalised (mean = c.0, standard deviation = c.1) \
+\f0\b0 : training and testing data are normalised (mean = c.0, standard deviation = c.1). \
+\
 2. 
 \f1\b resize_and_shuffle
-\f0\b0 : \
-	- shuffle: the dataset provided was sorted by class, shuffling the data is important especially if we are using mini-batch\
-	- resize: we implemented the capability to downsize the dataset, so we do not have to run our training and testing with the full dataset during the building phase.\
+\f0\b0 : (i) shuffle: the dataset provided was sorted by class, shuffling the data is important especially if we are using mini-batch. (ii) resize: we implemented the capability to downsize the dataset, so we do not have to run our training and testing with the full dataset during the building phase.\
 	\
-	>>> Sample command: \
-	>>> 
-\f2 \cf2 \cb3 \expnd0\expndtw0\kerning0
-data\cf4 , \cf2 label\cf4  \cf5 =\cf4  \cf6 resize_and_shuffle\cf4 (\cf2 input_data\cf4 , \cf2 input_label\cf4 , \cf2 proportion\cf4  \cf5 =\cf4  \cf2 0.5\cf4 , \cf2 random_state\cf4  \cf5 =\cf4  \cf2 42\cf4 )\cb1 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \ul Sample command: \ulnone \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf2 \cb3  
+\f2 \cb3 \expnd0\expndtw0\kerning0
+data\cb3 , \cb3 label\cb3  \cb3 =\cb3  \cb3 resize_and_shuffle\cb3 (\cb3 input_data\cb3 , \cb3 input_label\cb3 , \cb3 proportion\cb3  \cb3 =\cb3  \cb3 0.5\cb3 , \cb3 random_state\cb3  \cb3 =\cb3  \cb3 42\cb3 )\cb3 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0 \cf0 \kerning1\expnd0\expndtw0 	>>> This command resizes the training data by 0.5 x 50,000 = 25,000 with a set seed for replicability.\
- \
+\f0 \cf2 \cb3 \kerning1\expnd0\expndtw0 Explanation: this command resizes the training data by 0.5 x 50,000 = 25,000 with a set seed for replicability.\cf0 \cb1 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0  \
 3. 
 \f1\b train_val_split
 \f0\b0 : splits the data into training and validation sets, especially important if we were to implement early stopping.\
 \
-	>>> Sample command: \
-	>>> 
-\f2 \cf6 \cb3 \expnd0\expndtw0\kerning0
-train_data, train_label, val_data, val_label = train_val_split\cf4 (\cf2 input\cf4 , \cf2 output\cf4 , \cf2 proportion\cf4  \cf5 =\cf4  \cf2 0.8\cf4 , \cf2 random_state\cf4  \cf5 =\cf4  \cf7 42\cf4 )\cb1 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \ul Sample command:\ulnone  \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0 \cf0 \kerning1\expnd0\expndtw0 	>>> This command splits the training data to 0.8 x 25,000 = 20,000 in the training data and 0.2 x 25,000 = 5,000 in the validation data with a set seed for replicability.\
+\f2 \cf2 \cb3 \expnd0\expndtw0\kerning0
+train_data, train_label, val_data, val_label = train_val_split\cb3 (\cb3 input\cb3 , \cb3 output\cb3 , \cb3 proportion\cb3  \cb3 =\cb3  \cb3 0.8\cb3 , \cb3 random_state\cb3  \cb3 =\cb3  \cb3 42\cb3 )\
+
+\f0 \cb3 \kerning1\expnd0\expndtw0 Explanation: this command splits the training data to 0.8 x 25,000 = 20,000 in the training data and 0.2 x 25,000 = 5,000 in the validation data with a set seed for replicability.\cf0 \cb1 \
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 \ul 3B. THE DEEP LEARNING MODEL:\ulnone \
+\cf0 \ul B2. THE DEEP LEARNING MODEL:\ulnone \
 The deep learning model and its methods are implemented in three classes:\
 \
 1. 
 \f1\b Activation class
-\f0\b0 : this object contains our activation functions and their derivatives. This class is called by HiddenLayer when the neural network is constructed.\
-	- Activations for hidden layers: tanh, sigmoid, relu, leaky relu\
-	- activation for output layer: softmax\
+\f0\b0 : this object contains our activation functions and their derivatives. This class is called by HiddenLayer when the neural network is constructed. \
+- Activations for hidden layers include tanh, sigmoid, relu, leaky relu\
+- Activation for output layer is softmax.\
 \
 2. 
 \f1\b HiddenLayer class
 \f0\b0 : this object contains all parameters and methods relevant to the hidden layer. In summary, this class contains:\
-	- Weights, biases, and their gradients\
-	- forward and backward passes\
-	- Implementation of momentum, weight decay, dropout, batch normalisation, and Adam.\
+- Weights, biases, and their gradients\
+- forward and backward passes\
+- Implementation of momentum, weight decay, dropout, batch normalisation, and Adam.\
 \
 3. 
 \f1\b MLP
 \f0\b0  
 \f1\b class
 \f0\b0 : this object contains the main constructor and iterator for our neural network. In summary, this class contains:\
-	- initial neural network constructor\
-	- forward and backward: which will trigger the forward and backward propagations in all layers\
-	- criterion cross entropy: which is our objective function\
-	- update: which will update weights and gradients after forward and backward propagation\
-	- getBatch: which functions as a data loader for mini batch\
-	- fit: which will fit our model with the training data, do periodical validation checks, trigger early stopping (if used), \
-	- predict: which predicts labels based on the trained neural network\
-	- eval: which evaluates model performance during training\
-	- train_loop: which implements a single forward, backward, and update loop, to be used in fit.\
+- initial neural network constructor\
+- forward and backward: which will trigger the forward and backward propagations in all layers\
+- criterion cross entropy: which is our objective function\
+- update: which will update weights and gradients after forward and backward propagation\
+- getBatch: which functions as a data loader for mini batch\
+- fit: which will fit our model with the training data, do periodical validation checks, trigger early stopping (if used), \
+- predict: which predicts labels based on the trained neural network\
+- eval: which evaluates model performance during training\
+- train_loop: which implements a single forward, backward, and update loop, to be used in fit.\
 \
-	>>> sample commands:\
-	>>> 
-\f2 \cf2 \cb3 \expnd0\expndtw0\kerning0
-nn\cf4  \cf5 =\cf4  \cf8 MLP\cf4 (\cf2 [128,64,64,10]\cf4 , \cf2 [None, \'91relu\'92,\'92relu\'92,\'92softmax\'92]\cf4 )\cb1 \
+\ul sample commands:\ulnone \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0 \cf0 \kerning1\expnd0\expndtw0 	>>> This constructs a neural network object with two hidden layers (relu, 64 nodes each) and one output layer (softmax, 10 nodes). \
-	\
-	>>> 
 \f2 \cf2 \cb3 \expnd0\expndtw0\kerning0
-train_loss\cf4 , \cf2 val_loss\cf4 , \cf2 epoch\cf4  \cf5 =\cf4  \cf2 nn\cf4 .\cf6 fit\cf4 (\cf2 train_data\cf4 , \cf2 train_label\cf4 , \cf2 val_data\cf4 , \cf2 val_label\cf4 , \cb1 \
+nn\cb3  \cb3 =\cb3  \cb3 MLP\cb3 (\cb3 [128,64,64,10]\cb3 , \cb3 [None, \'91relu\'92,\'92relu\'92,\'92softmax\'92]\cb3 )\
+
+\f0 \cb3 \kerning1\expnd0\expndtw0 Explanation: This constructs a neural network object with two hidden layers (relu, 64 nodes each) and one output layer (softmax, 10 nodes). \
+\cf0 \cb1 	\
+
+\f2 \cf2 \cb3 \expnd0\expndtw0\kerning0
+train_loss\cb3 , \cb3 val_loss\cb3 , \cb3 epoch\cb3  \cb3 =\cb3  \cb3 nn\cb3 .\cb3 fit\cb3 (\cb3 train_data\cb3 , \cb3 train_label\cb3 , \cb3 val_data\cb3 , \cb3 val_label\cb3 , \
 \pard\pardeftab720\partightenfactor0
-\cf4 \cb3                                                             \cf2 momentum_gamma\cf4  \cf5 =\cf4  \cf2 0.0\cf4 , \cf2 learning_rate\cf4  \cf5 =\cf4  \cf2 0.001\cf4 , \cf2 epochs\cf4  \cf5 =\cf4  \cf2 200\cf4 , \cf2 batch_size\cf4  \cf5 =\cf4  \cf2 100\cf4 , \cb1 \
-\cb3                                                             \cf2 weight_decay\cf4  \cf5 =\cf4  \cf2 0.0\cf4 , \cf2 dropout_rate\cf4  \cf5 =\cf4  \cf2 0.0\cf4 , \cf2 early_stopping\cf4  \cf5 =\cf4  \cf2 [3,10]\cf4 ,  \cb1 \
-\cb3                                                             \cf2 \cb3 batchnorm_switch\cf4 \cb3  \cf5 \cb3 =\cf4 \cb3  \cf2 \cb3 False\cf4 \cb3 , \cf2 adam_switch\cf4  \cf5 =\cf4  \cf2 False\cf4 , \cf2 adam_learning_rate\cf4  \cf5 =\cf4  \cf2 0.0\cf4 )\cb1 \
+\cf2 \cb3                                      \cb3 momentum_gamma\cb3  \cb3 =\cb3  \cb3 0.0\cb3 , \cb3 learning_rate\cb3  \cb3 =\cb3  \cb3 0.001\cb3 , \cb3 epochs\cb3  \cb3 =\cb3  \cb3 200\cb3 , \cb3 batch_size\cb3  \cb3 =\cb3  \cb3 100\cb3 , \
+                                     \cb3 weight_decay\cb3  \cb3 =\cb3  \cb3 0.0\cb3 , \cb3 dropout_rate\cb3  \cb3 =\cb3  \cb3 0.0\cb3 , \cb3 early_stopping\cb3  \cb3 =\cb3  \cb3 [3,10]\cb3 ,  \
+                                     batchnorm_switch = False, \cb3 adam_switch\cb3  \cb3 =\cb3  \cb3 False\cb3 , \cb3 adam_learning_rate\cb3  \cb3 =\cb3  \cb3 0.0\cb3 )\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0 \cf0 \kerning1\expnd0\expndtw0 	>>> This implements a fit with training and validation data and labels, with different parameters (e.g. learning_rate, epochs, batch_size) and methods.\
-	>>> Further explanation is provided in comments within the code file\
+\f0 \cf2 \cb3 \kerning1\expnd0\expndtw0 Explanation: this implements a fit with training and validation data and labels, with different parameters (e.g. learning_rate, epochs, batch_size) and methods. Further explanation is provided in comments within the code file\cf0 \cb1 \
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 \ul 3C. HELPER FUNCTIONS:\ulnone \
+\cf0 \ul B3. HELPER FUNCTIONS:\ulnone \
 1. 
 \f1\b Hyperparameter_testing
 \f0\b0 : \
@@ -118,61 +125,62 @@ train_loss\cf4 , \cf2 val_loss\cf4 , \cf2 epoch\cf4  \cf5 =\cf4  \cf2 nn\cf4 .\c
 	- this function takes all possible combination of parameters as lists and iterates through them\
 	- this function also calculates training and testing scores, records the number of epochs for each training run, and runtimes\
 \
-	>>> sample command:\
-	>>> 	
+\ul sample command:\ulnone \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
 \f2 \cf2 \cb3 \expnd0\expndtw0\kerning0
-learning_rates\cf4  \cf5 =\cf4  [\cf7 0.001\cf4 ]\cb1 \
+learning_rates\cb3  \cb3 =\cb3  [\cb3 0.001\cb3 ]\
 \pard\pardeftab720\partightenfactor0
-\cf2 \cb3 		batch_sizes\cf4  \cf5 =\cf4  [\cf7 1\cf4 ]\cb1 \
-\cf2 \cb3 		early_stopping_combination\cf4  \cf5 =\cf4  [[\cf8 np\cf4 .inf,\cf7 10\cf4 ],[\cf7 3\cf4 ,\cf7 10\cf4 ]]\cb1 \
-\cf2 \cb3 		epoch_counts\cf4  \cf5 =\cf4  [\cf7 200\cf4 ]\cb1 \
-\cf2 \cb3 		momentum_gammas\cf4  \cf5 =\cf4  [\cf7 0.0\cf4 ]\cb1 \
-\cf2 \cb3 		weight_decays\cf4  \cf5 =\cf4  [\cf7 0.0\cf4 ]\cb1 \
-\cf2 \cb3 		dropouts\cf4  \cf5 =\cf4  [\cf7 0.0\cf4 ]\cb1 \
-\cf2 \cb3 		batchnorm_switches\cf4  \cf5 =\cf4  [\cf9 False\cf4 ]\cb1 \
-\cf2 \cb3 		adam_learning_rates\cf4  \cf5 =\cf4  [\cf7 0.00\cf4 ]\cb1 \
-\cf2 \cb3 		node_counts\cf4  \cf5 =\cf4  [[\cf7 128\cf4 ,\cf7 64\cf4 ,\cf7 64\cf4 ,\cf7 10\cf4 ]] \cb1 \
-\cf2 \cb3 		node_activations\cf4  \cf5 =\cf4  [[\cf9 None\cf4 ,\cf10 'relu'\cf4 ,\cf10 'relu'\cf4 ,\cf10 'softmax'\cf4 ]]\cb1 \
+\cf2 \cb3 batch_sizes\cb3  \cb3 =\cb3  [\cb3 1\cb3 ]\
+\cb3 early_stopping_combination\cb3  \cb3 =\cb3  [[\cb3 np\cb3 .inf,\cb3 10\cb3 ],[\cb3 3\cb3 ,\cb3 10\cb3 ]]\
+\cb3 epoch_counts\cb3  \cb3 =\cb3  [\cb3 200\cb3 ]\
+\cb3 momentum_gammas\cb3  \cb3 =\cb3  [\cb3 0.0\cb3 ]\
+\cb3 weight_decays\cb3  \cb3 =\cb3  [\cb3 0.0\cb3 ]\
+\cb3 dropouts\cb3  \cb3 =\cb3  [\cb3 0.0\cb3 ]\
+\cb3 batchnorm_switches\cb3  \cb3 =\cb3  [\cb3 False\cb3 ]\
+\cb3 adam_learning_rates\cb3  \cb3 =\cb3  [\cb3 0.00\cb3 ]\
+\cb3 node_counts\cb3  \cb3 =\cb3  [[\cb3 128\cb3 ,\cb3 64\cb3 ,\cb3 64\cb3 ,\cb3 10\cb3 ]] \
+\cb3 node_activations\cb3  \cb3 =\cb3  [[\cb3 None\cb3 ,\cb3 'relu'\cb3 ,\cb3 'relu'\cb3 ,\cb3 'softmax'\cb3 ]]\
 \
-\cf2 \cb3 		parameters\cf4  \cf5 =\cf4  (\cf2 learning_rates\cf4 ,\cf2 batch_sizes\cf4 ,\cf2 early_stopping_combination\cf4 , \cf2 epoch_counts\cf4 , \cf2 momentum_gammas\cf4 , \cf2 weight_decays\cf4 , \cf2 dropouts\cf4 , \cf2 batchnorm_switches\cf4 ,\cf2 adam_learning_rates\cf4 , \cf2 node_counts\cf4 ,\cf2 node_activations\cf4 )\cb1 \
+\cb3 parameters\cb3  \cb3 =\cb3  (\cb3 learning_rates\cb3 ,\cb3 batch_sizes\cb3 ,\cb3 early_stopping_combination\cb3 , \cb3 epoch_counts\cb3 , \cb3 momentum_gammas\cb3 , \cb3 weight_decays\cb3 , \cb3 dropouts\cb3 , \cb3 batchnorm_switches\cb3 ,\cb3 adam_learning_rates\cb3 , \cb3 node_counts\cb3 ,\cb3 node_activations\cb3 )\
 \
-\cf2 \cb3 		results\cf4  \cf5 =\cf4  \cf6 hyperparamater_testing\cf4 (\cf2 parameters\cf4 ,\cf2 train_data\cf4 , \cf2 train_label\cf4 , \cf2 val_data\cf4 , \cf2 val_label\cf4 )\cb1 \
+\cb3 results\cb3  \cb3 =\cb3  \cb3 hyperparamater_testing\cb3 (\cb3 parameters\cb3 ,\cb3 train_data\cb3 , \cb3 train_label\cb3 , \cb3 val_data\cb3 , \cb3 val_label\cb3 )\cf10 \cb1 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0 \cf0 \kerning1\expnd0\expndtw0 \
-		>>> In the above example, hyperparameter tuning was performed over early_stopping combination \
-		>>> e.g. ([np.inf,10] for no early stopping, [3,10] for early stopping with 3 max cycle of deteriorating validation score and validation checks every 10 epochs).\
-		>>> this function returns relevant parameters and scores for reporting purposes and train and validation losses for plotting purposes.\
-		>>> Further explanation is provided in comments within the code file\
-\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf2 \cb3 \ul \ulc4 Explanation\cb3 \ulnone : n the above example, hyperparameter tuning was performed over early_stopping combination \
+e.g. ([np.inf,10] for no early stopping, [3,10] for early stopping with 3 max cycle of deteriorating validation score and validation checks every 10 epochs).\
+this function returns relevant parameters and scores for reporting purposes and train and validation losses for plotting purposes.\
+Further explanation is provided in comments within the code file\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \cb1 \
 2. 
 \f1\b filter_asset
 \f0\b0 :\
-	- this function creates a data frame from hyperparameter tuning results, for reporting purposes\
-	- users can choose how to filter the dataset (e.g. only include results where learning_rate = 0.001) and which columns to show in the data frame.\
+- this function creates a data frame from hyperparameter tuning results, for reporting purposes\
+- users can choose how to filter the dataset (e.g. only include results where learning_rate = 0.001) and which columns to show in the data frame.\
 \
 3. 
 \f1\b multi_plotter
 \f0\b0 :\
-	- This function plots training loss curves with customisable color, marker, and line.\
-	- list down all column names in label_keys to display them in the legend box.\
-	- add the name of the label in marker_param, line_param, and color_param to add them as customisation.	\
-	>>> Sample command:\
-	>>> 	
-\f2 \cf11 \cb12 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec11 target\cf4 \strokec4  \cf13 \strokec13 =\cf14 \strokec14 'train_loss'\cf4 \cb1 \strokec4 \
+- This function plots training loss curves with customisable color, marker, and line.\
+- list down all column names in label_keys to display them in the legend box.\
+- add the name of the label in marker_param, line_param, and color_param to add them as customisation.	\
+Sample command:\
+
+\f2 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec18 target\cb3 \strokec9  \cb3 \strokec19 =\cb3 \strokec20 'train_loss'\cb3 \strokec9 \
 \pard\pardeftab720\partightenfactor0
-\cf11 \cb12 \strokec11 		label_keys\cf4 \strokec4  \cf13 \strokec13 =\cf4 \strokec4 [\cf14 \strokec14 'early_stopping'\cf4 \strokec4 ]  \cb1 \
-\cf11 \cb12 \strokec11 		marker_param\cf4 \strokec4  \cf13 \strokec13 =\cf4 \strokec4  \cf15 \strokec15 None\cf4 \cb1 \strokec4 \
-\cf11 \cb12 \strokec11 		line_param\cf4 \strokec4  \cf13 \strokec13 =\cf4 \strokec4  \cf14 \strokec14 'early_stopping'\cf4 \cb1 \strokec4 \
-\cf11 \cb12 \strokec11 		color_param\cf4 \strokec4  \cf13 \strokec13 =\cf4 \strokec4  \cf14 \strokec14 'early_stopping'\cf4 \cb1 \strokec4 \
-\cf11 \cb12 \strokec11 		title\cf4 \strokec4  \cf13 \strokec13 =\cf4 \strokec4  \cf14 \strokec14 'Training Losses with and without early stopping'\cf4 \cb1 \strokec4 \
-\cf16 \cb12 \strokec16 		multi_plotter\cf4 \strokec4 (\cf11 \strokec11 title\cf4 \strokec4 , \cf11 \strokec11 assets_exp_1\cf4 \strokec4 , \cf11 \strokec11 target\cf4 \strokec4 , \cf11 \strokec11 label_keys\cf4 \strokec4 , \cf11 \strokec11 marker_param\cf4 \strokec4 , \cf11 \strokec11 line_param\cf4 \strokec4 , \cf11 \strokec11 color_param\cf4 \strokec4 , \cf11 \strokec11 fig_size\cf4 \strokec4  \cf13 \strokec13 =\cf4 \strokec4 (\cf17 \strokec17 10\cf4 \strokec4 ,\cf17 \strokec17 3\cf4 \strokec4 ))\cb1 \
+\cf2 \cb3 \strokec18 label_keys\cb3 \strokec9  \cb3 \strokec19 =\cb3 \strokec9 [\cb3 \strokec20 'early_stopping'\cb3 \strokec9 ]  \
+\cb3 \strokec18 marker_param\cb3 \strokec9  \cb3 \strokec19 =\cb3 \strokec9  \cb3 \strokec21 None\cb3 \strokec9 \
+\cb3 \strokec18 line_param\cb3 \strokec9  \cb3 \strokec19 =\cb3 \strokec9  \cb3 \strokec20 'early_stopping'\cb3 \strokec9 \
+\cb3 \strokec18 color_param\cb3 \strokec9  \cb3 \strokec19 =\cb3 \strokec9  \cb3 \strokec20 'early_stopping'\cb3 \strokec9 \
+\cb3 \strokec18 title\cb3 \strokec9  \cb3 \strokec19 =\cb3 \strokec9  \cb3 \strokec20 'Training Losses with and without early stopping'\cb3 \strokec9 \
+\cb3 \strokec22 multi_plotter\cb3 \strokec9 (\cb3 \strokec18 title\cb3 \strokec9 , \cb3 \strokec18 assets_exp_1\cb3 \strokec9 , \cb3 \strokec18 target\cb3 \strokec9 , \cb3 \strokec18 label_keys\cb3 \strokec9 , \cb3 \strokec18 marker_param\cb3 \strokec9 , \cb3 \strokec18 line_param\cb3 \strokec9 , \cb3 \strokec18 color_param\cb3 \strokec9 , \cb3 \strokec18 fig_size\cb3 \strokec9  \cb3 \strokec19 =\cb3 \strokec9 (\cb3 \strokec23 10\cb3 \strokec9 ,\cb3 \strokec23 3\cb3 \strokec9 ))\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
-\
-\
+\f0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
@@ -180,17 +188,15 @@ learning_rates\cf4  \cf5 =\cf4  [\cf7 0.001\cf4 ]\cb1 \
 \f0\b0 \ulnone \
 \
 Preparation of this code has been aided by academic papers, open repositories, and other public online materials for good practices and insights.\
-Several notable sources are listed below:\
-
-\f2 \cf10 \cb3 \expnd0\expndtw0\kerning0
-1. Yong, Hongwei & Huang, Jianqiang & Meng, Deyu & Hua, Xiansheng & Zhang, Lei. (2020). Momentum Batch Normalization for Deep Learning with Small Batch Size. 10.1007/978-3-030-58610-2_14. \cf4 \cb1 \
+Se\cb24 veral notable sources are listed below:\
+\cf26 \cb27 \expnd0\expndtw0\kerning0
+1. Yong, Hongwei & Huang, Jianqiang & Meng, Deyu & Hua, Xiansheng & Zhang, Lei. (2020). Momentum Batch Normalization for Deep Learning with Small Batch Size. 10.1007/978-3-030-58610-2_14. \cf26 \cb27 \
 \pard\pardeftab720\partightenfactor0
-\cf10 \cb3 2. Vinod, R. (2021, December 14). Batch Normalisation Explained - Towards Data Science. Medium. https://towardsdatascience.com/batch-normalisation-explained-5f4bd9de5feb#:~:text=Test%20phase,that%20is%20calculated%20during%20training.\cf4 \cb1 \
-\cf10 \cb3 3. Kratzert, F. (2016, February 12). Understanding the backward pass through Batch Normalization Layer. https://kratzert.github.io/2016/02/12/understanding-the-gradient-flow-through-the-batch-normalization-layer.html
-\f0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
-
-\f2 \cf10 \cb3 \expnd0\expndtw0\kerning0
-4. D. (2017, August 25). Adam Optimization Algorithm (C2W2L08). YouTube. https://www.youtube.com/watch?v=JXQT_vxqwIs\cf4 \cb1 \
-\cf10 \cb3 5. Kingma, D. P., & Ba, J. (2014, December 22). Adam: A Method for Stochastic Optimization. arXiv.org. https://arxiv.org/abs/1412.6980\cf4 \cb1 \
-\
+\cf26 \cb27 2. Vinod, R. (2021, December 14). Batch Normalisation Explained - Towards Data Science. Medium. https://towardsdatascience.com/batch-normalisation-explained-5f4bd9de5feb#:~:text=Test%20phase,that%20is%20calculated%20during%20training.\cf26 \cb27 \
+\cf26 \cb27 3. Kratzert, F. (2016, February 12). Understanding the backward pass through Batch Normalization Layer. https://kratzert.github.io/2016/02/12/understanding-the-gradient-flow-through-the-batch-normalization-layer.html\cf26 \cb27 \kerning1\expnd0\expndtw0 \
+\cf26 \cb27 \expnd0\expndtw0\kerning0
+4. D. (2017, August 25). Adam Optimization Algorithm (C2W2L08). YouTube. https://www.youtube.com/watch?v=JXQT_vxqwIs\cf26 \cb27 \
+\cf26 \cb27 5. Kingma, D. P., & Ba, J. (2014, December 22). Adam: A Method for Stochastic Optimization. arXiv.org. https://arxiv.org/abs/1412.6980\cf26 \cb27 \
+\pard\pardeftab720\partightenfactor0
+\cf25 \cb24 \
 }
