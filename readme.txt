@@ -7,7 +7,7 @@ Goal of this assignment is to implement a neural network without the use of mode
 
 
 B. CODE OVERVIEW:
-The codes can be ran top to bottom. The code was originally run on a local CPU due to the bandwidth limitation on Colab. All relevant functions and helper functions are placed at the top, followed by the best model recommendation and hyperparameter testing at the bottom.
+The codes from Google Collab can be run directly from top to bottom without additional steps. The code was originally run on a local CPU due to the bandwidth limitation on Colab. All relevant functions and helper functions are placed at the top, followed by the best model recommendation and hyperparameter testing at the bottom.
 
 
 The structure of our neural network implementation can be divided into three main parts, explained below:
