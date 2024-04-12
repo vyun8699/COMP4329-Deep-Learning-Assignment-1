@@ -6,7 +6,7 @@ A. BACKGROUND:
 Goal of this assignment is to implement a neural network without the use of modern machine learning libraries. Teams are provided with training and test data, each with 50,000 and 10,000 data points across 10 classes. Each data point consists of 128 floating numbers.
 
 
-B. CODE OVERVIEW:
+B. CODE INSTRUCTIONS:
 The codes from Google Collab can be run directly from top to bottom without additional steps. The code was originally run on a local CPU due to the bandwidth limitation on Colab. All relevant functions and helper functions are placed at the top, followed by the best model recommendation and hyperparameter testing at the bottom.
 
 
